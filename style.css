@@ -1,0 +1,98 @@
+.main-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    background: #f5f9f5;
+    margin: 0;
+    padding: 0;
+}
+
+.scoreboard, .button-area {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 20px 0;
+}
+
+.scoreboard {
+    font-size: 1.2em;
+}
+
+.scoreboard div {
+    background: #ffffff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    min-width: 100px;
+}
+
+.scoreboard span {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #2a7a3b;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(17, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 1px;
+    margin: 0 auto;
+    background-color: #cdeac0;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    background: white;
+    border: 1px solid #cdeac0;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.lemon {
+    background-color: #fff0b3;
+}
+
+.selected {
+    background-color: #e8f5e9 !important;
+    border: 2px solid #66bb6a !important;
+    box-sizing: border-box;
+}
+
+button {
+    font-size: 1em;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #449d44;
+}
+
+body, .cell, .grid-container {
+    user-select: none;
+    -webkit-user-drag: none;
+}
