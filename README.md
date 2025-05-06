@@ -2,7 +2,7 @@
 
 레몬 게임이란? 숫자로 된 격자 속 10을 만드는 직사각형을 찾아 점수를 얻는 퍼즐 게임입니다.
 
-HTML, CSS, JavaScript로 제작되었으며, [여기](https://junick1.github.io/lemon-game/)서 바로 플레이할 수 있습니다.
+HTML, CSS, JavaScript로 제작되었으며, [여기](https://junick1.github.io/auto-lemon-game/)서 바로 플레이할 수 있습니다.
 
 ---
 
