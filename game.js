@@ -111,14 +111,12 @@ function startTimer() {
     timerElem.textContent = formatTime(timeLeft);
 
     timerInterval = setInterval(() => {
-        if(timeLeft <= 0) {
-            clearInterval(interval);
+        if(timeLeft <= 1) {
+            clearInterval(timerInterval);
 
             timerElem.textContent = '0:00';
             if(isBotRunning) toggleBot();
             isGameRunning = false;
-
-            alert(`게임 종료! 최종 점수: ${score}`);
             return;
         }
         timeLeft--;
