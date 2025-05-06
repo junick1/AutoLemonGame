@@ -6,8 +6,13 @@
 
         <link rel="stylesheet" href="style.css">
     </head>
-    <body ondragstart="return false;" onselectstart="return false;" oncontextmenu="return false;">
+    <body class="dark" ondragstart="return false;" onselectstart="return false;" oncontextmenu="return false;">
         <div class="main-wrapper">
+            <div class="button-area">
+                <button onclick="toggleDragMode()" id="drag-mode-button">🖱️ 클릭</button>
+                <button onclick="toggleDarkMode()" id="dark-mode-button">☀️ 밝게</button>
+            </div>              
+
             <div class="scoreboard">
                 <div>점수<br><span id="score">0</span></div>
                 <div>남은 시간<br><span id="timer">2:00</span></div>
@@ -23,6 +28,7 @@
             <script src="utils.js"></script>
             <script src="game.js"></script>
             <script src="bot.js"></script>
+            <script src="dragMode.js"></script>
         </div>
     </body>
 </html>

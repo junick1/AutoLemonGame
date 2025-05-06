@@ -1,15 +1,54 @@
-.main-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
+:root {
+    --bg-color: #f5f9f5;
+    --text-color: #222;
+    --score-bg: #ffffff;
+    --score-title: #6a7280;
+    --score-text: #2a7a3b;
+
+    --div-bg: #f1f7f1;
+
+    --cell-bg: white;
+    --cell-empty: #f7fAf7;
+    --cell-border: #cdeac0;
+    --selected-bg: #e8f5e9;
+    --selected-border: #66bb6a;
+
+    --button-bg: #5cb85c;
+    --button-hover: #449d44;
+}
+
+body.dark {
+    --bg-color: #484e51;
+    --text-color: #222;
+    --score-bg: #555b5e;
+    --score-title: #d1d5dA;
+    --score-text: #aaf4aa;
+
+    --div-bg: #404040;
+    
+    --cell-bg: #e4e7eb;
+    --cell-empty: #eff2f2;
+    --cell-border: #acb0b4;
+    --selected-bg: #b3d9b3;
+    --selected-border: #66bb6a;
+
+    --button-bg: #333;
+    --button-hover: #666;
 }
 
 body {
     font-family: 'Segoe UI', sans-serif;
     text-align: center;
-    background: #f5f9f5;
+    background: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
+}
+
+.main-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .scoreboard, .button-area {
@@ -24,11 +63,12 @@ body {
 }
 
 .scoreboard div {
-    background: #ffffff;
+    background: var(--score-bg);
     padding: 15px 25px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     min-width: 100px;
+    color: var(--score-title);
 }
 
 .scoreboard span {
@@ -36,7 +76,7 @@ body {
     font-size: 1.8em;
     font-weight: bold;
     margin-top: 5px;
-    color: #2a7a3b;
+    color: var(--score-text);
 }
 
 .grid-container {
@@ -46,7 +86,7 @@ body {
     grid-template-rows: repeat(10, 40px);
     gap: 1px;
     margin: 0 auto;
-    background-color: #cdeac0;
+    background-color: var(--div-bg);
     padding: 5px;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -57,13 +97,18 @@ body {
     height: 40px;
     font-size: 18px;
     line-height: 40px;
-    background: white;
-    border: 1px solid #cdeac0;
+    background: var(--cell-bg);
+    border: 1px solid var(--cell-border);
     position: relative;
     cursor: pointer;
+
     text-align: center;
-    border-radius: 4px;
     box-sizing: border-box;
+    color: var(--text-color);
+}
+
+.empty {
+    background: var(--cell-empty);
 }
 
 .lemon {
@@ -71,25 +116,23 @@ body {
 }
 
 .selected {
-    background-color: #e8f5e9 !important;
-    border: 2px solid #66bb6a !important;
-    box-sizing: border-box;
+    background-color: var(--selected-bg) !important;
+    border: 2px solid var(--selected-border) !important;
 }
 
 button {
     font-size: 1em;
     padding: 12px 24px;
     border-radius: 8px;
-    background-color: #5cb85c;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     cursor: pointer;
     margin: 10px;
-    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #449d44;
+    background-color: var(--button-hover);
 }
 
 body, .cell, .grid-container {

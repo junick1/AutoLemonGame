@@ -32,3 +32,10 @@ function formatTime(seconds) {
     const s = seconds % 60;
     return `${m}:${s.toString().padStart(2, '0')}`;
 }
+
+function toggleDarkMode() {
+    const body = document.body;
+    const btn = document.querySelector('#dark-mode-button');
+    const isDark = body.classList.toggle('dark');
+    btn.textContent = isDark ? "☀️ 밝게" : "🌙 어둡게";
+}

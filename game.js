@@ -20,6 +20,7 @@ function initGame() {
     timeLeft = 120;
     isGameRunning = true;
 
+    enableDragListeners();
     render();
     startTimer();
 }
@@ -31,6 +32,7 @@ function render() {
             const cell = document.createElement('div');
             cell.className = 'cell';
 
+            if(!grid[y][x]) cell.classList.add('empty');
             if(grid[y][x] && grid[y][x].lemon) cell.classList.add('lemon');
             if(selected.some(p => p.x === x && p.y === y)) cell.classList.add('selected');
             
@@ -44,23 +46,28 @@ function render() {
     document.getElementById('score').textContent = score;
 }
 
-function selectCell(x, y) {
+function selectCell(x, y, nx = null, ny = null) {
     if(!isGameRunning) return;
 
-    if(!firstClick) {
-        firstClick = { x, y };
-        selected = [{ x, y }];
-        render();
+    const x1 = nx !== null ? nx : firstClick?.x;
+    const y1 = ny !== null ? ny : firstClick?.y;
+
+    if(x1 === undefined || y1 === undefined) {
+        if(!firstClick) {
+            firstClick = { x, y };
+            selected = [{ x, y }];
+            render();
+        }
         return;
     }
 
-    const x1 = Math.min(firstClick.x, x), x2 = Math.max(firstClick.x, x);
-    const y1 = Math.min(firstClick.y, y), y2 = Math.max(firstClick.y, y);
+    const xx1 = Math.min(x1, x), xx2 = Math.max(x1, x);
+    const yy1 = Math.min(y1, y), yy2 = Math.max(y1, y);
     selected = [];
 
     let sum = 0, lemonCount = 0;
-    for(let yy = y1; yy <= y2; yy++) {
-        for(let xx = x1; xx <= x2; xx++) {
+    for(let yy = yy1; yy <= yy2; yy++) {
+        for(let xx = xx1; xx <= xx2; xx++) {
             if(!grid[yy][xx]) continue;
             
             selected.push({ x: xx, y: yy });
