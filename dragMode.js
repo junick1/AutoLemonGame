@@ -1,6 +1,7 @@
 let isDragMode = true;
 let dragStart = null;
 let lastHoveredCell = null;
+let dragListenersEnabled = false;
 
 function toggleDragMode() {
     isDragMode = !isDragMode;
@@ -9,10 +10,14 @@ function toggleDragMode() {
 }
 
 function enableDragListeners() {
+    if(dragListenersEnabled) return;
+    dragListenersEnabled = true;
+
     const gridEl = document.getElementById('grid');
 
     gridEl.addEventListener('mousedown', e => {
         if(!isGameRunning || !isDragMode) return;
+        if(isBotRunning) return;
 
         const target = e.target;
         if(!target.classList.contains('cell')) return;
@@ -25,7 +30,8 @@ function enableDragListeners() {
     });
 
     gridEl.addEventListener('mousemove', e => {
-        if(!isDragMode || dragStart === null) return;
+        if(!isGameRunning || !isDragMode || dragStart === null) return;
+        if(isBotRunning) return;
 
         const target = e.target;
         if(!target.classList.contains('cell')) return;
@@ -50,7 +56,7 @@ function enableDragListeners() {
 }
 
 document.addEventListener('mouseup', () => {
-    if(!isDragMode || dragStart === null) {
+    if(!isGameRunning || !isDragMode || dragStart === null || isBotRunning) {
         dragStart = null;
         lastHoveredCell = null;
         return;

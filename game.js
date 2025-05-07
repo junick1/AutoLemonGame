@@ -20,9 +20,9 @@ function initGame() {
     timeLeft = 120;
     isGameRunning = true;
 
-    enableDragListeners();
     render();
     startTimer();
+    enableDragListeners();
 }
 
 function render() {
